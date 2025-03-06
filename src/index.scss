@@ -1,0 +1,305 @@
+$font-family-sans-serif: "Calibri", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
+$white: #fff;
+$black: #000;
+$primary: #8FBA54;
+$success: #0061A0;
+$danger: #C0454A;
+$warning: #E5B951;
+$info: #57AAF8;
+$viridos-bg: #2A3748;
+$viridos-text-color: #485E29;
+$viridos-link-color: #90BA54;
+$viridos-table-th-bg: #90BA54;
+$viridos-light-bg: #EEF4E9;
+$viridos-table-striped-bg: #DCE6D1;
+$viridos-table-hover-bg: #8FBA54;
+
+$body-bg: $viridos-bg;
+$body-color:  $viridos-text-color;
+$input-bg: $white;
+$nav-tabs-link-active-bg: $white;
+$table-bg: $viridos-light-bg;
+$table-hover-bg: $viridos-table-hover-bg;
+$table-striped-bg: $viridos-table-striped-bg;
+$link-color: $viridos-link-color;
+$navbar-light-color: rgba($viridos-text-color, .75);
+$navbar-light-hover-color: $viridos-text-color;
+$nav-link-color: $viridos-link-color;
+$nav-tabs-link-active-color: $viridos-text-color;
+$dropdown-link-color: $viridos-text-color;
+$navbar-light-brand-color: $viridos-text-color;
+$navbar-light-active-color: $viridos-text-color;
+$card-cap-bg: $viridos-light-bg;
+$card-bg: $white;
+$card-color: $viridos-text-color;
+$popover-bg: $viridos-light-bg;
+
+$tooltip-bg: $viridos-bg;
+
+$strain-bgs: (
+    0: #8FBA54,
+    1: #E5B951,
+    2: #00965E,
+    3: #0061A0,
+    4: #5E4D85,
+    5: #C0454A,
+    empty: $white
+);
+
+@each $n, $c in $strain-bgs {
+    .strain-#{$n} {
+        background-color: $c;
+        width: 20px;
+        height: 20px;
+        border-radius: 5;
+        display: inline-block;
+    }
+}
+
+@import "bootstrap";
+$bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
+
+@each $n, $c in $strain-bgs {
+    .btn-#{$n} {
+        @include button-variant($c, if($c == $white, $primary, $c), if($c == $white, $primary, $white));
+    }
+}
+
+.viridos-gradient {
+    background-image: linear-gradient(90deg,#FCCD48 0%,#3DAA64 48.96%,#1B6EA4 100%);
+    //background-image: linear-gradient(to right, #FFC836, #78BE21 33%, #00965E 66%, #0061A0);
+    width: 100%;
+    height: 10px;
+    position: relative;
+}
+
+.light-background {
+    background-color: $viridos-light-bg;
+}
+
+.App-logo {
+    height: 512px;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 4s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.danger-icon {
+    @extend .bi;
+    color: $danger;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.danger-icon::before {
+    content: "\F33A";
+}
+.add-icon::before {
+    @extend .bi;
+    content: "\f4fd";
+}
+
+.add-icon:hover::before {
+    content: "\f4fc";
+}
+
+.add-icon:active {
+    color: $primary;
+}
+
+.to-next-icon::before {
+    @extend .bi;
+    content: "\f137";
+}
+
+.to-next-icon:hover::before {
+    content: "\f136";
+}
+
+.to-next-icon:active {
+    color: $primary;
+}
+
+.trash-icon {
+    @extend .bi;
+    color: $danger;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.trash-icon::before {
+    @extend .bi;
+    content: "\f78b";
+}
+
+.trash-icon:hover::before {
+    content: "\f78a";
+}
+
+.trash-icon:active {
+    background-color: #622022;
+}
+
+.stopwatch-icon {
+    @extend .bi;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.stopwatch-icon::before {
+    @extend .bi;
+    content: "\F597";
+}
+
+.play-icon {
+    @extend .bi;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.play-icon::before {
+    @extend .bi;
+    content: "\F4F3";
+}
+
+.play-icon:hover::before {
+    content: "\F4F2";
+}
+
+.play-icon:active {
+    background-color: #622022;
+}
+
+.stop-icon {
+    @extend .bi;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.stop-icon::before {
+    @extend .bi;
+    content: "\F591";
+}
+
+.stop-icon:hover::before {
+    content: "\F590";
+}
+
+.stop-icon:active {
+    background-color: #622022;
+}
+
+
+
+.question-icon {
+    @extend .bi;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.question-icon::before {
+    @extend .bi;
+    content: "\F505";
+}
+
+.question-icon:hover::before {
+    content: "\F504";
+}
+
+.question-icon:active {
+    background-color: #622022;
+}
+
+.refresh-icon {
+    @extend .bi;
+    color: $viridos-table-hover-bg;
+    text-align: start;
+    vertical-align: middle;
+}
+
+.refresh-icon::before {
+    @extend .bi;
+    content: "\F116";
+}
+
+.refresh-icon:hover::before {
+    background-color: $viridos-table-hover-bg;
+}
+
+.refresh-icon:active {
+    background-color: $viridos-table-hover-bg;
+}
+
+.close-x::before {
+    @extend .bi;
+    content: "\F62A";
+}
+
+.close-x:hover::before {
+    content: " \F622";
+}
+
+.close-x:active {
+    color: $primary;
+}
+
+.react-select__control {
+    @extend .form-control;
+}
+
+.react-select__menu {
+    @extend .form-control;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.react-select__control--is-focused {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    @if $enable-shadows {
+      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+    } @else {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+
+.react-select__option {
+    padding-left: 0.75rem;
+}
+
+.react-select__option--is-focused {
+    background-color: #C8E1D2;
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: $danger;
+}

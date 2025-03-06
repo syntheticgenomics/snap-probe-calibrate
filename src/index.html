@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title class="titled">SNAP L-com pH Probe Calibration</title>
+</head>
+
+<body>
+    <div class="viridos-gradient"></div>
+    <br />
+    <div id="calibrationCarousel" class="carousel slide">
+        <div class="carousel-indicators" style="bottom: -50px;">
+            <button type="button" data-bs-target="#calibrationCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#calibrationCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#calibrationCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#calibrationCarousel" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#calibrationCarousel" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="card" id="cleanCard">
+                            <div class="card-header">Step 1: Prepare the probe</div>
+                            <div class="card-body" id="cleanCardBody">
+                                <p class="card-text">Put the electrode into the buffer solution of pH 4 and
+                                    soak for 10 mins, and then soak in buffer solution of pH
+                                    7 for 10 mins.</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h1><i class="p-2 stopwatch-icon"></i></h1>
+                                    <h1 style="width: 120px; align-content: center; justify-content: center;"><span class="p-2" id="timeRemaining">10:00</span></h1>
+                                    <h1><i class="p-2 play-icon" id="timerBtn"></i></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="card" id="connectCard">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+                                <div>Step 2: Connect to the probe</div>
+                                <div><i class="question-icon" 
+                                    data-bs-toggle="popover"
+                                    data-bs-placement="left"
+                                    data-bs-content="New probes have default values of 9600 baud and Id 1. SNAP usually uses 19200 baud and Ids starting at 104 for each pond"></i></div>
+                            </div>
+                            </div>
+                            <div class="card-body" id="connectCardBody">
+                                <div class="row mb-3">
+                                    <label for="serialPort" class="col-sm-3 col-form-label">Serial port&nbsp;<i
+                                            class="refresh-icon" id="refreshPorts"></i></label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" id="serialPort" style="width: auto;" autofocus>
+                                            <option disabled selected>Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="baudRate" class="col-sm-3 col-form-label">Baud rate</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" id="baudRate" style="width: auto;" autofocus>
+                                            <option>2400</option>
+                                            <option>4800</option>
+                                            <option>9600</option>
+                                            <option selected>19200</option>
+                                            <option>38400</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="modbusId" class="col-sm-3 col-form-label">Modbus Id</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="modbusId" step="1" min="1"
+                                            max="255" value="104" style="width: 75px;" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-auto">
+                                        <button class="btn btn-primary" id="testCommsBtn">Test</button>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="card" id="neutralCard">
+                            <div class="card-body" id="neutralCardBody">
+                                <h5 class="card-title">Neutral point calibration</h5>
+                                <p class="card-text">Put the electrode in the pH 7 solution and wait for the value below to stabilize</p>
+                                <h3 id="neutralValue">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="card" id="slopeCard">
+                            <div class="card-body" id="slopeCardBody">
+                                <h5 class="card-title"><span id="slopeText">Basic</span> point calibration</h5>
+                                <p class="card-text">Put the electrode in the pH 10 solution and wait for the value below to stabilize</p>
+                                <h3 id="basicValue">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="card" id="finalCard">
+                            <div class="card-body" id="finalCardBody">
+                                <h5 class="card-title">Calibration is complete</h5>
+                                <p class="card-text">The L-com pH probe has been successfully calibrated!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#calibrationCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#calibrationCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="toast-container p-3 top-0 start-50 translate-middle-x">
+        <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+            aria-atomic="true" id="successToast">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Found the L-com pH sensor!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive"
+            aria-atomic="true" id="failToast">
+            <div class="d-flex">
+                <div class="toast-body">
+                    The L-com pH sensor was not found
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive"
+            aria-atomic="true" id="commsFailToast">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Communication failed with the L-com pH sensor
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

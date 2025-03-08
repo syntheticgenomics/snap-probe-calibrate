@@ -30,13 +30,16 @@
                         <div class="card" id="cleanCard">
                             <div class="card-header">Step 1: Prepare the probe</div>
                             <div class="card-body" id="cleanCardBody">
-                                <p class="card-text">Put the electrode into the buffer solution of pH 4 and
-                                    soak for 10 mins, and then soak in buffer solution of pH
-                                    7 for 10 mins.</p>
+                                <p class="card-text">Put the electrode into the buffer solution of pH <strong>4</strong> and
+                                    soak for 10 minutes, and then soak in buffer solution of pH
+                                    <strong>7</strong> for 10 minutes.</p>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <h1><i class="p-2 stopwatch-icon"></i></h1>
                                     <h1 style="width: 120px; align-content: center; justify-content: center;"><span class="p-2" id="timeRemaining">10:00</span></h1>
-                                    <h1><i class="p-2 play-icon" id="timerBtn"></i></h1>
+                                    
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h2><i class="p-2 play-icon" id="timerBtn"></i></h2>
+                                    <h2><i class="p-2 sound-icon" data-snap="sound"></i></h2>
                                 </div>
                             </div>
                         </div>
@@ -51,14 +54,15 @@
                         <div class="card" id="connectCard">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between">
-                                <div>Step 2: Connect to the probe</div>
-                                <div><i class="question-icon" 
-                                    data-bs-toggle="popover"
-                                    data-bs-placement="left"
-                                    data-bs-content="New probes have default values of 9600 baud and Id 1. SNAP usually uses 19200 baud and Ids starting at 104 for each pond"></i></div>
-                            </div>
+                                    <div>Step 2: Connect to the probe</div>
+                                    <div><i class="question-icon" 
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="left"
+                                        data-bs-content="New probes have default values of 9600 baud and Id 1. SNAP usually uses 19200 baud and Ids starting at 104 for each pond"></i></div>
+                                </div>
                             </div>
                             <div class="card-body" id="connectCardBody">
+                                <div class="card-text">Perform a successful test in order to proceed.</div><br>
                                 <div class="row mb-3">
                                     <label for="serialPort" class="col-sm-3 col-form-label">Serial port&nbsp;<i
                                             class="refresh-icon" id="refreshPorts"></i></label>
@@ -88,7 +92,8 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-sm-auto">
+                                    <div class="col"></div>
+                                    <div class="col-sm-auto" >
                                         <button class="btn btn-primary" id="testCommsBtn">Test</button>
                                     </div>
                                     <div class="col"></div>
@@ -104,10 +109,13 @@
                     <div class="col-2"></div>
                     <div class="col-8">
                         <div class="card" id="neutralCard">
+                            <div class="card-header">Step 3: pH 7 calibration</div>
                             <div class="card-body" id="neutralCardBody">
-                                <h5 class="card-title">Neutral point calibration</h5>
-                                <p class="card-text">Put the electrode in the pH 7 solution and wait for the value below to stabilize</p>
-                                <h3 id="neutralValue">0</h3>
+                                <p class="card-text">Put the electrode in the pH <strong>7</strong> solution and wait for the value below to drop below 1</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h3 id="neutralValue">250</h3>
+                                    <h2><i class="p-2 sound-icon" data-snap="sound"></i></h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,10 +127,13 @@
                     <div class="col-2"></div>
                     <div class="col-8">
                         <div class="card" id="slopeCard">
+                            <div class="card-header">Step 4: pH 10 point calibration</div>
                             <div class="card-body" id="slopeCardBody">
-                                <h5 class="card-title"><span id="slopeText">Basic</span> point calibration</h5>
-                                <p class="card-text">Put the electrode in the pH 10 solution and wait for the value below to stabilize</p>
-                                <h3 id="basicValue">0</h3>
+                                <p class="card-text">Put the electrode in the pH <strong>10</strong> solution and wait for the value below to drop below 1</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h3 id="basicValue">2500</h3>
+                                    <h2><i class="p-2 sound-icon" data-snap="sound"></i></h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -134,8 +145,8 @@
                     <div class="col-2"></div>
                     <div class="col-8">
                         <div class="card" id="finalCard">
+                            <div class="card-header">Calibration is complete</div>
                             <div class="card-body" id="finalCardBody">
-                                <h5 class="card-title">Calibration is complete</h5>
                                 <p class="card-text">The L-com pH probe has been successfully calibrated!</p>
                             </div>
                         </div>
@@ -148,7 +159,7 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#calibrationCarousel" data-bs-slide="next">
+        <button id="nextBtn" class="carousel-control-next" type="button" data-bs-target="#calibrationCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>

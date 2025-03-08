@@ -211,7 +211,37 @@ $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
     background-color: #622022;
 }
 
+.sound-icon {
+    @extend .bi;
+    text-align: start;
+    vertical-align: middle;
+}
 
+.sound-icon::before {
+    @extend .bi;
+    content: "\F611";
+}
+
+.sound-icon:hover::before {
+    content: "\F610";
+}
+
+.sound-icon:active {
+    background-color: #622022;
+}
+
+.mute-icon::before {
+    @extend .bi;
+    content: "\F60D";
+}
+
+.mute-icon:hover::before {
+    content: "\F60C";
+}
+
+.mute-icon:active {
+    background-color: #622022;
+}
 
 .question-icon {
     @extend .bi;

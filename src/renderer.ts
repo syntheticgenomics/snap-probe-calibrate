@@ -99,7 +99,7 @@ function startTimer() {
     }
     timerBtn.classList.remove('play-icon');
     timerBtn.classList.add('stop-icon');
-    targetTime = Date.now() +  1000;
+    targetTime = Date.now() + 10 * 60 * 1000;
     window.setTimeout(() => {
         console.log(`starting timer`);
         timerId = window.setInterval(() => {

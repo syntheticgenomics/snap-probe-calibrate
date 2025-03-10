@@ -18,6 +18,8 @@ export interface IElectronAPI {
 
     confirmZeroPoint: () => Promise<void>,
     confirmSlope: () => Promise<void>,
+
+    getPh: () => number,
 }
 
 declare global {

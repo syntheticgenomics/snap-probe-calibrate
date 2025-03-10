@@ -148,6 +148,10 @@
                             <div class="card-header">Calibration is complete</div>
                             <div class="card-body" id="finalCardBody">
                                 <p class="card-text">The L-com pH probe has been successfully calibrated!</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h3 id="phValue">?</h3>
+                                    <h3>&nbspH</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -160,7 +164,7 @@
             <span class="visually-hidden">Previous</span>
         </button>
         <button id="nextBtn" class="carousel-control-next" type="button" data-bs-target="#calibrationCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true"id="nextPopover" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Complete the step to proceed" data-bs-placement="left"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>

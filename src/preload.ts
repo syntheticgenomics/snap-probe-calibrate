@@ -8,5 +8,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     prepareProbe:(options: {zero?: 0|1, slope?: 0|1|2|3|4} = {zero: 0, slope: 3}) => ipcRenderer.invoke('prepare-probe', options),
     getADC: () => ipcRenderer.invoke('get-ADC'),
     confirmZeroPoint: () => ipcRenderer.invoke('confirm-zero'),
-    confirmSlope: () => ipcRenderer.invoke('confirm-slope')
+    confirmSlope: () => ipcRenderer.invoke('confirm-slope'),
+    getPh: () => ipcRenderer.invoke('get-pH')
 })

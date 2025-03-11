@@ -34,7 +34,7 @@ implements Iterable<E>
             throw new Error('capacity not an integer');
         }
 
-        if (capacity < 0) {
+        if (capacity <= 0) {
             throw new Error('capacity must be positive');
         }
 

@@ -284,7 +284,10 @@ refreshPorts.onclick = (e: MouseEvent) => reloadSerialPorts();
 
 async function reloadSerialPorts(): Promise<void> {
     const serialPorts: string[] = await window.electronAPI.getSerialPorts();
-    const defaultPort = serialPorts.find(p => p.startsWith('/dev/tty.usbserial') || p.startsWith('/dev/ttySC')) ?? '/dev/ttySC0';
+    const defaultPort = serialPorts.find(p =>
+        p.startsWith('COM') ||
+        p.startsWith('/dev/tty.usbserial') ||
+        p.startsWith('/dev/ttySC')) ?? '/dev/ttySC0';
 
     if (serialPorts?.length) {
         while(serialPort.length) {

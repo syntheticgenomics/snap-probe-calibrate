@@ -74,7 +74,10 @@ async function getSerialPorts(): Promise<string[]> {
         .filter(pi => !!pi?.path)
         .map(pi => pi.path);
     if (null == comms.port) {
-        comms.port = serialPorts.find(p => p.startsWith('/dev/tty.usbserial') || p.startsWith('/dev/ttySC'))
+        comms.port = serialPorts.find(p => 
+            p.startsWith('COM') ||
+            p.startsWith('/dev/tty.usbserial') ||
+            p.startsWith('/dev/ttySC'))
     }
     return serialPorts;
 }

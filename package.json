@@ -2,7 +2,7 @@
   "name": "snap-probe-calibrate",
   "productName": "SNAP Probe Calibrate",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Calibration tool for the L-com pH sensor",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",

@@ -21,7 +21,14 @@ const config: ForgeConfig = {
     icon: './src/Viridos-Logo_512' // no file extension required
   },
   rebuildConfig: {},
-  makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
+  makers: [
+    new MakerSquirrel({
+        name: "SNAPProbeCalibrate",
+        setupIcon: './src/Viridos-Logo_512.ico'
+    }),
+    new MakerZIP({}, ['darwin']),
+    new MakerRpm({}),
+    new MakerDeb({})],
   plugins: [
     new AutoUnpackNativesPlugin({}),
     new WebpackPlugin({

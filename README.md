@@ -10,7 +10,17 @@ This will compile changes on-the-fly.
 ```
 
 ### Create a executable app
-This will create an executable binary n the out directory
+This will create an executable binary in the `out/SNAP Probe Calibrate-<platform>` directory
 ```sh
 > npm run package
 ```
+
+### Create an installer
+1. This will create an installer under the `out/make` directory
+    ```sh
+    > npm run make
+    ```
+
+2. Upload the installer to the S3 bucket `snap-probe-calibrate` so users can download it from the following web page:  
+http://snap-probe-calibrate.s3-website-us-west-2.amazonaws.com/
+
